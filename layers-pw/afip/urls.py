@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from afip.views import ApplicationIndexView
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^afip/', include('afip.urls')),
+    url(r'^$', ApplicationIndexView.as_view()),
 ]
