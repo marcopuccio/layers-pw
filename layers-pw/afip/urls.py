@@ -18,5 +18,5 @@ from django.contrib import admin
 from afip.views import ApplicationIndexView
 
 urlpatterns = [
-    url(r'^$', ApplicationIndexView.as_view()),
+    url(r'^$', ApplicationIndexView.as_view(), name="afip_home"),
 ]
