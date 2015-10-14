@@ -5,8 +5,8 @@
 {% block content %}
 <section>
 <ul class="breadcrumbs">
-  <li><a href="/">Home</a></li>
-  <li class="current"><a href="{% url 'afip_home' %}">Cloning</a></li>
+    <li><a href="/">Home</a></li>
+    <li class="current"><a href="{% url 'afip_home' %}">Verificator</a></li>
 </ul>
 </section>
 <section class="afip">
@@ -14,6 +14,28 @@
     <div class="small-12 text-center columns">
         <h3>AFIP Cuil/Cuit Verificator</h3>
         <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="small-12 columns">
+        <form>
+            {% csrf_token %}
+            <div class="row">
+                <div class="small-10 end columns">
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <label for="right-label" class="right inline">Cuil</label>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="text" id="right-label" placeholder="Ingrese Cuil a Verificar.">
+                        </div>
+                    </div>
+                </div>
+                <div class="small-4 end small-centered text-center columns">
+                    <button type="submit">Validar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 </section>
