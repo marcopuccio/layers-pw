@@ -1,0 +1,6 @@
+#BASICS FOR NEW GENERAL PROJECTS
+django
+ipython
+mysqlclient
+simplejson
+pytz
