@@ -6,7 +6,7 @@
 <section>
 <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
-    <li class="current"><a href="{% url 'afip_home' %}">Verificator</a></li>
+    <li class="current"><a href="{% url 'afip:home' %}">Verificator</a></li>
 </ul>
 </section>
 <section class="afip">
@@ -18,7 +18,7 @@
 </div>
 <div class="row">
     <div class="small-12 columns">
-        <form>
+        <form action='{% url 'afip:result' %}' method="POST">
             {% csrf_token %}
             <div class="row">
                 <div class="small-10 end columns">

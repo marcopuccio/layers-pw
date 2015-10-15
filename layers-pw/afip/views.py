@@ -15,10 +15,10 @@ class ResultsForQueryView(DetailView):
     Calculates the verification digit and compares that with the response
     of the VerificatorAPI.
     """
-    verificator = VerificatorAPI.objects.all()[0]
+    verificator = VerificatorAPI.objects.get(pk=1)
     generator_pattern = (5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
 
-    def digit_generation(cuil):
+    def digit_generation(request):
         """
         Slice the taken cuil to create a verification digit using the pattern
         to calculate it.
