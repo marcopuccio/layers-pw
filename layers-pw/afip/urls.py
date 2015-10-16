@@ -19,5 +19,5 @@ from afip.views import ApplicationIndexView, ResultsForQueryView
 
 urlpatterns = [
     url(r'^$', ApplicationIndexView.as_view(), name="home"),
-    url(r'^result/', ResultsForQueryView.as_view(), name="result"),
+    url(r'^result', ResultsForQueryView.as_view(), name="result"),
 ]
