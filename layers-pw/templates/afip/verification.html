@@ -22,14 +22,15 @@
             {% csrf_token %}
             <div class="row">
                 <div class="small-10 end columns">
-                    <div class="row">
+                    {{ form }}
+                    <!--div class="row">
                         <div class="small-3 columns">
                             <label for="right-label" class="right inline">Cuil</label>
                         </div>
                         <div class="small-9 columns">
                             <input type="text" id="right-label" name="cuil" placeholder="Ingrese Cuil a Verificar.">
                         </div>
-                    </div>
+                    </div-->
                 </div>
                 <div class="small-4 end small-centered text-center columns">
                     <button type="submit">Validar</button>
