@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView
-from django.http import HttpResponse
+from django.views.generic import TemplateView, FormView, DetailView
 
 from .models import VerificatorAPI
 from .forms import CuilForm 
@@ -18,26 +17,22 @@ class ApplicationIndexView(TemplateView):
         context['form'] = form
         return context
 
+class CuilQueryView(FormView):
+    template_name = "afip/verification.html"
+    form_class = CuilForm
+    success_url= "result/"
+
+    def form_valid(self, form):
+        return super(CuilQueryView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(CuilQueryView, self).get_context_data(**kwargs)
+        context['success'] = self.success
+        return context
 
 class ResultsForQueryView(TemplateView):
     """
     Calculates the verification digit and compares that with the response
     of the VerificatorAPI.
     """
-
-    template_name = 'afip/verification.html'
-    
-    def post(self, request, *args, **kwargs):
-        context = self.get_context_data()
-        if context['form'].is_valid():
-            return HttpResponse("posted")
-        return context
-    
-    def get_context_data(self, **kwargs):
-        context = super(ResultsForQueryView, self).get_context_data(**kwargs)
-        form = CuilForm(self.request.POST or None)
-        context['form'] = form
-        return context
-
-
-
+    template_name = "afip/result.html"

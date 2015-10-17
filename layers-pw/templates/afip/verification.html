@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% block main %}
-
 {% block content %}
 <section>
 <ul class="breadcrumbs">
@@ -18,19 +16,11 @@
 </div>
 <div class="row">
     <div class="small-12 columns">
-        <form action='{% url 'afip:result' %}' method="POST">
+        <form action='{% url 'afip:query' %}' method="POST">
             {% csrf_token %}
             <div class="row">
                 <div class="small-10 end columns">
                     {{ form }}
-                    <!--div class="row">
-                        <div class="small-3 columns">
-                            <label for="right-label" class="right inline">Cuil</label>
-                        </div>
-                        <div class="small-9 columns">
-                            <input type="text" id="right-label" name="cuil" placeholder="Ingrese Cuil a Verificar.">
-                        </div>
-                    </div-->
                 </div>
                 <div class="small-4 end small-centered text-center columns">
                     <button type="submit">Validar</button>
@@ -39,16 +29,6 @@
         </form>
     </div>
 </div>
-
-{% if verification %}
-<div class="row">
-    <div class="small-12 columns text-center">
-        <h1>{{ verification }}<h1>
-    </div>
-</div>
-{% endif %}
-
 </section>
 {% endblock content %}
 
-{% endblock main %}
