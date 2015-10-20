@@ -4,7 +4,7 @@
 <section>
 <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
-    <li class="current"><a href="{% url 'afip:home' %}">Verificator</a></li>
+    <li class="current"><a href="{% url 'afip:cuil_query' %}">Verificator</a></li>
 </ul>
 </section>
 <section class="afip">
@@ -16,7 +16,7 @@
 </div>
 <div class="row">
     <div class="small-12 columns">
-        <form action='{% url 'afip:query' %}' method="POST">
+        <form action='{% url 'afip:cuil_query' %}' method="POST">
             {% csrf_token %}
             <div class="row">
                 <div class="small-10 end columns">

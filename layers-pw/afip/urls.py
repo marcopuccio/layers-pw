@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from afip.views import ApplicationIndexView, CuilQueryView, ResultsForQueryView
+from afip.views import CuilQueryView
 
 urlpatterns = [
-    url(r'^$', ApplicationIndexView.as_view(), name="home"),
-    url(r'^query', CuilQueryView.as_view(), name="query"),
-    url(r'^result', ResultsForQueryView.as_view(), name="result"),
+    url(r'^$', CuilQueryView.as_view(), name="cuil_query"),
 ]
