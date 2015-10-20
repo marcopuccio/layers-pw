@@ -18,5 +18,5 @@ from django.contrib import admin
 from afip.views import CuilQueryView
 
 urlpatterns = [
-    url(r'^$', CuilQueryView.as_view(), name="cuil_query"),
+    url(r'', CuilQueryView.as_view(), name="cuil_query"),
 ]

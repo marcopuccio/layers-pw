@@ -11,11 +11,10 @@ class CuilQueryView(FormView):
     form_class = CuilForm
 
     def get_success_url(self):
-        url = reverse('cuil_query')
+        url = reverse('afip:cuil_query', args=[])
         return "%s?cuil=%s" % (url, self.request.POST['cuil'])
 
-    def form_valid(self, form, *args, **kwargs):
-        self.cuil = form.cleaned_data.get('cuil')
+    def get_context_data(self, *args, **kwargs):
         context = super(CuilQueryView, self).get_context_data(**kwargs)
-        context['cuil'] = self.cuil
-        return super(CuilQueryView, self).form_valid(form, *args, **kwargs)
+        context['cuil'] = self.request.GET.get('cuil', '')
+        return context  
