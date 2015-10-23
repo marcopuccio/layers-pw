@@ -1,21 +1,88 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block main %}
-
 {% block content %}
-
 <section>
-<div class="row">
+  <div class="row">
     <div class="small-12 text-center columns">
-        <h1>APPLICATION INDEX PAGE</h1>
+      <h1>Trabajo Practico de Programacion en Capas</h1>
     </div>
-</div>
-<div class="row">
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Consigna:</h2>
+      <p>Realizar un pequeño programa bajo el patroón de programación en capas que debera cumplir los siguientes requisitos:</p>
+    </div>
+  </div>
+
+  <!--Layers Specification-->
+  <div class="row">
+    <div class="small-12">
+      <ul class="small-block-grid-1 medium-block-grid-3">
+        <li>
+          <div class="row">
+            <div class="small-12 columns">
+              <h4>User Interface:</h4>
+            </div>
+            <div class="small-12 columns">
+              <p>
+                Constará de un formulario en el cual se ingresará un numero de <em>CUIL</em> <b>sin</b> guinones. 
+                Asimismo, se deberá restar una unidad al ultimo dígito para darle funcionalidad a la capa de datos
+                detallada posteriormente.
+              </p>
+              <blockquote>Ej: Si tu numero real de CUIL es 20XXXXXXXXXN deberás ingresar 20XXXXXXXX(N-1)</blockquote>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <div class="small-12 columns">
+              <h4>Bussiness Layer:</h4>
+            </div>
+            <div class="small-12 columns">
+              <p>Deberá calcular el digito verificador del CUIL ingresado.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <div class="small-12 columns">
+              <h4>Data Layer:</h4>
+            </div>
+            <div class="small-12 columns">
+              <p>Simplemente recibirá el numero de CUIL ingresado en el formulario y le sumará 1</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Funcionamiento</h2>
+      <p>
+        En la UI se ingresará el CUIL de la manera detallada anteriormente. La Bussines Layer recibira el dato, calculará
+        el código verificador real del cuil y le enviará a la Data Layer el valor que recibió en primer instancia. Con el 
+        valor recibido, la Data Layer unicamente le sumará una unidad(N+1) y le devolverá a la Bussiness Layer el valor 
+        calculado. Una vez realizado todo este proceso, la Bussiness evaluará el valor devuelto de la Data Layer contra 
+        el CUIL con el dígito verificador creado. En caso de ser iguales, se mostrará una leyenda indicando que el CUIL 
+        es correcto, de manera contraria, incorrecto.
+      </p>
+    </div>  
+  </div>
+  <!--App launcher-->
+  <div class="row">
     <div class="small-12 text-center columns">
-        <a class="button" href="/afip/">Afip Verificator</a>
+      <a class="button" href="{% url 'afip:cuil_query' %}">Comenzar</a>      
     </div>
-</div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <span>Ver código fuente <a href="https://github.com/mars0n/layers-pw">Aqui!</a></span>
+    </div>
+  </div>
 </section>
 {% endblock content %}
-
 {% endblock main %}

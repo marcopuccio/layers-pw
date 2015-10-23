@@ -2,23 +2,23 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Código Verificador AFIP</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-    </head>
+<head>
+    <title>Código Verificador AFIP</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+</head>
 
-    <body>
-        {% block main %}{% endblock main %}
-        <!--Foundation Scripts-->
-        <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'bower_components/foundation/js/foundation.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+<body>
+    {% block main %}{% endblock main %}
+    <!--Foundation Scripts-->
+    <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bower_components/foundation/js/foundation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 
-		<script>
-		$(document).foundation();
-		</script>
-		<!--Extra Scripts-->
-		{% block extra_js %}{% endblock extra_js %}
-    </body>
+    <script>
+      $(document).foundation();
+  </script>
+  <!--Extra Scripts-->
+  {% block extra_js %}{% endblock extra_js %}
+</body>
 
-    <html>
+<html>
