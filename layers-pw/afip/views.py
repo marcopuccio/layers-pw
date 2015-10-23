@@ -31,7 +31,7 @@ class CuilQueryView(FormView):
         Calculates the real verification Cuil/Cuit number
         """
     	pattern = (5, 4, 3, 2, 7, 6, 5, 4, 3, 2)
-        cuil = self.request.GET.get('cuil')[:9]
+        cuil = self.request.GET.get('cuil')[:10]
         digit = 0
 
         for x, y in zip(cuil, pattern):
@@ -49,7 +49,7 @@ class CuilQueryView(FormView):
         cl = self.request.GET.get('cuil')
         API = VerificatorAPI.objects.get(pk=1)
         api_resp = str(API.add_one(int(cl)))
-        created_digit = cl[0:9] + str(self.digit_creation())
+        created_digit = cl[:10] + str(self.digit_creation())
         if created_digit == api_resp:
             return "Cuil Correcto"
         else:
