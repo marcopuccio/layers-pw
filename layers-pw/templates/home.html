@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block main %}
+
 {% block content %}
-<section>
+<section class="home">
   <div class="row">
     <div class="small-12 text-center columns">
       <h1>Trabajo Practico de Programacion en Capas</h1>
@@ -79,14 +79,12 @@
     </div>
   </div>
   <div class="row">
-  <div class="small-1 columns">
-  
-  <a href="https://github.com/mars0n/layers-pw"><img src="{% static 'img/GitHub-Mark-120px-plus.png' %}"></span>
-  </div>
+    <div class="small-1 columns">
+      <a href="https://github.com/mars0n/layers-pw"><img src="{% static 'img/GitHub-Mark-120px-plus.png' %}"></a>
+    </div>
     <div class="small-11 columns">
       <span>Ver código fuente en <a href="https://github.com/mars0n/layers-pw">GitHub</a></span>
     </div>
   </div>
 </section>
 {% endblock content %}
-{% endblock main %}

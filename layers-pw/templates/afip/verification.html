@@ -2,34 +2,41 @@
 
 {% block content %}
 <section>
-<ul class="breadcrumbs">
+  <ul class="breadcrumbs">
     <li><a href="/">Home</a></li>
     <li class="current"><a href="{% url 'afip:cuil_query' %}">Verificator</a></li>
-</ul>
+  </ul>
 </section>
 <section class="afip">
-<div class="row">
+  <div class="row">
     <div class="small-12 text-center columns">
-        <h3>AFIP Cuil/Cuit Verificator</h3>
-        <hr />
+      <h1>AFIP Cuil/Cuit Verificator</h1>
+      <hr />
     </div>
-</div>
-<div class="row">
+  </div>
+  <div class="row">
     <div class="small-12 columns">
-        <form action='{% url 'afip:cuil_query' %}' method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="small-10 end columns">
-                    {{ form }}
-                </div>
-                <div class="small-4 end small-centered text-center columns">
-                    <button type="submit">Validar</button>
-                </div>
-            </div>
-        </form>
+      <form action='{% url 'afip:cuil_query' %}' method="POST">
+        {% csrf_token %}
+        <div class="row">
+          <div class="small-10 end columns">
+            {{ form }}
+          </div>
+          <div class="small-4 end small-centered text-center columns">
+            <button type="submit">Validar</button>
+          </div>
+        </div>
+      </form>
     </div>
-</div>
+  </div>
 </section>
-{{ verification }}
+{% if verification %}
+<div class="row">
+  <div class="small-12 columns text-center verification">
+    <h3>{{ verification }}</h3>
+ </div>
+</div>
+{% endif %}
+
 {% endblock content %}
 
