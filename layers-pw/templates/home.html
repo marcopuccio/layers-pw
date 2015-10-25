@@ -29,11 +29,8 @@
                 </div>
                 <div class="small-12 columns">
                   <p>
-                    Constará de un formulario en el cual se ingresará un numero de <em>CUIL</em> <b>sin</b> guinones. 
-                    Asimismo, se deberá restar una unidad al ultimo dígito para darle funcionalidad a la capa de datos
-                    detallada posteriormente.
+                    Constará de un formulario en el cual se ingresará un numero de <b>CUIL</b> <em>sin</em> guinones. 
                   </p>
-                  <blockquote>Ej: Si tu numero real de CUIL es 20XXXXXXXXXN deberás ingresar 20XXXXXXXX(N-1)</blockquote>
                 </div>
               </div>
             </li>
@@ -65,19 +62,20 @@
         <div class="small-12 columns">
           <h2>Funcionamiento</h2>
           <p>
-            En la UI se ingresará el CUIL de la manera detallada anteriormente. La Bussines Layer recibira el dato, calculará
-            el código verificador real del cuil y le enviará a la Data Layer el valor que recibió en primer instancia. Con el 
-            valor recibido, la Data Layer unicamente le sumará una unidad(N+1) y le devolverá a la Bussiness Layer el valor 
-            calculado. Una vez realizado todo este proceso, la Bussiness evaluará el valor devuelto de la Data Layer contra 
-            el CUIL con el dígito verificador creado. En caso de ser iguales, se mostrará una leyenda indicando que el CUIL 
-            es correcto, de manera contraria, incorrecto.
+            En el formulario de la UI se ingresará el numero de CUIL actual, restandole al ultimo digito(Codigo verificador) 
+            una unidad (*). La Bussines Layer recibira el dato, calculará el código verificador real del cuil y le enviará a
+             la Data Layer el valor que recibió en primer instancia. Con el valor recibido, la Data Layer unicamente le sumará
+              una unidad(N+1) y le devolverá a la Bussiness Layer el valor calculado. Una vez realizado todo este proceso, 
+              la Bussiness evaluará el valor devuelto de la Data Layer contra el CUIL con el dígito verificador creado. En caso 
+              de ser iguales, se mostrará una leyenda indicando que el CUIL es correcto, de manera contraria, incorrecto.
           </p>
+          <blockquote><small>(*)</small>Ej: Si tu numero real de CUIL es 20XXXXXXXXXN deberás ingresar 20XXXXXXXX(N-1)</blockquote>
         </div>  
       </div>
       <!--App launcher-->
       <div class="row">
         <div class="small-12 text-center columns">
-          <a class="button" href="{% url 'afip:cuil_query' %}">Comenzar</a>      
+          <a class="button wide" href="{% url 'afip:cuil_query' %}">Comenzar</a>      
         </div>
       </div>
     </div>
