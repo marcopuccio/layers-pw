@@ -14,9 +14,10 @@ $light-black: lighten($black, 80);
 // Colors
 
 $nav-color: #72112B;
-
+$quotes-color: $nav-color;
 
 html, body {
+    background-color: $light-black;
     margin: 0 auto;
     font-family: $body-font-family;
 }
@@ -28,13 +29,19 @@ h1, h2, h3, h4, h5, h6 {
 
 blockquote {
     font-weight: $font-thin;
+    color: $quotes-color;
+}
+
+button, .button {
+    -webkit-border-radius: rem-calc(5);
+    border-radius: rem-calc(5);
+    padding: rem-calc(24) rem-calc(90)
 }
 
 
 header {
     position: relative;
-	background-color: $nav-color;
-    box-shadow: 0px 0px rem-calc(30) $black; 
+    background-color: $nav-color;
     ul {
         max-width: 100%;
         li{
@@ -45,6 +52,7 @@ header {
     }
 }
 section {
+    background-color: $white;
     &.home {
         .spaced {
             padding-top: rem-calc(35);
@@ -52,6 +60,13 @@ section {
         }
         .wrapper {
             border: 1px solid $light-black;
+            margin-bottom: rem-calc(16);
         }
     }
+}
+
+footer {
+    background-color: $light-black;
+    padding-top: rem-calc(32);
+    padding-bottom: rem-calc(32);
 }
