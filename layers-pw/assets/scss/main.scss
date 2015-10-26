@@ -8,13 +8,14 @@ $font-bold: 900;
 
 
 // Common Colors
-$white: #FFFFFF;
-$black: #000000;
-$light-black: lighten($black, 80);
-// Colors
+$white       : #FFFFFF;
+$black       : #000000;
 
-$nav-color: #72112B;
-$quotes-color: $nav-color;
+// Colors
+$light-black: lighten($black, 80);
+$college-color: #72112B;
+$college-color-hover: #80102E;
+$light-college-color: lighten($college-color, 70);
 
 html, body {
     background-color: $light-black;
@@ -26,22 +27,34 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: $font-bold;
     font-family: $body-font-family;
 }
+a {
+    color: $college-color;
+    &:hover {
+        color: $college-color-hover;
+    }
+}
 
 blockquote {
     font-weight: $font-thin;
-    color: $quotes-color;
+    color: $college-color;
 }
 
 button, .button {
     -webkit-border-radius: rem-calc(5);
     border-radius: rem-calc(5);
-    padding: rem-calc(24) rem-calc(90)
+    padding: rem-calc(24) rem-calc(90);
+    background-color: $college-color;
+    color: $white;
+    &:hover {
+        background-color: $college-color-hover;
+    }
 }
+
 
 
 header {
     position: relative;
-    background-color: $nav-color;
+    background-color: $college-color;
     ul {
         max-width: 100%;
         li{
@@ -51,16 +64,51 @@ header {
         }
     }
 }
+
 section {
     background-color: $white;
-    &.home {
+    .breadcrumbs {
+        margin: 0 auto;
+        li {
+            a {
+                color: $college-color;
+            }
+        }
+    }
+    &.home, &.afip {
         .spaced {
+            position: relative;
             padding-top: rem-calc(35);
             padding-bottom: rem-calc(20);
+
         }
         .wrapper {
             border: 1px solid $light-black;
             margin-bottom: rem-calc(16);
+        }
+    }
+    &.afip {
+        ul {
+            &.errorlist {
+                position: absolute;
+                bottom: 10px;
+                margin: 0;
+                width: 100%;
+                li {
+                    list-style: none;
+                    background-color: red;
+                    color: $white;
+                    padding: rem-calc(0 10);
+                }
+            } 
+        }
+        .verification {
+            min-height: rem-calc(150);
+            background-color: $light-college-color;
+            margin-bottom: rem-calc(40);
+            h3 {
+                line-height: rem-calc(150);
+            }
         }
     }
 }

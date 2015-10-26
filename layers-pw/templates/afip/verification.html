@@ -2,41 +2,48 @@
 
 {% block content %}
 <section>
-  <ul class="breadcrumbs">
-    <li><a href="/">Home</a></li>
-    <li class="current"><a href="{% url 'afip:cuil_query' %}">Verificator</a></li>
-  </ul>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="breadcrumbs">
+        <li><a href="/">Home</a></li>
+        <li class="current"><a href="{% url 'afip:cuil_query' %}">Verificador</a></li>
+      </ul>
+    </div>
+  </div>
 </section>
 <section class="afip">
   <div class="row">
-    <div class="small-12 text-center columns">
-      <h1>AFIP Cuil/Cuit Verificator</h1>
-      <hr />
+    <div class="small-12 text-center columns spaced">
+      <h1>AFIP Cuil/Cuit Verificador</h1>
     </div>
   </div>
   <div class="row">
-    <div class="small-12 columns">
-      <form action='{% url 'afip:cuil_query' %}' method="POST">
-        {% csrf_token %}
-        <div class="row">
-          <div class="small-10 end columns">
-            {{ form }}
-          </div>
-          <div class="small-4 end small-centered text-center columns">
-            <button type="submit">Validar</button>
-          </div>
+    <div class="small-12 columns wrapper">
+      <div class="row">
+        <div class="small-12 columns">
+          <form action='{% url 'afip:cuil_query' %}' method="POST">
+            {% csrf_token %}
+            <div class="row collapse">
+              <div class="small-10 end columns small-centered spaced">
+                {{ form }}
+              </div>
+              <div class="small-12 end small-centered text-center columns">
+                <button type="submit">Validar</button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
+      {% if verification %}
+      <div class="row">
+        <div class="small-11 columns small-centered text-center verification">
+          <h3>{{ verification }}</h3>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
-{% if verification %}
-<div class="row">
-  <div class="small-12 columns text-center verification">
-    <h3>{{ verification }}</h3>
- </div>
-</div>
-{% endif %}
 
 {% endblock content %}
 
