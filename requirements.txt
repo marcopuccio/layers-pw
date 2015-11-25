@@ -1,5 +1,5 @@
 #BASICS FOR NEW GENERAL PROJECTS
-django
+django==1.9
 ipython
 mysqlclient
 simplejson
